@@ -1,5 +1,7 @@
 package com.test.viewtree
 
+import android.content.Context
+import android.content.Intent
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
@@ -33,5 +35,10 @@ class MainViewModel {
             count = 0
             return
         }
+    }
+
+    fun onClickOpenOtherActivity(context: Context) {
+        val i = Intent(context, RecyclerViewTestActivity::class.java)
+        context.startActivity(i)
     }
 }
