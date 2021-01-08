@@ -2,6 +2,8 @@ package com.test.viewtree
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
+import android.widget.TextView
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
@@ -32,9 +34,23 @@ class MainViewModel {
         if(count == 1) {
             _name.value = "test 12222323213123123123123123123123123123123123123123123123123123123123123"
             _contract.value = "test"
+            count++
+            return
+        }
+
+        if(count == 2) {
+            if(::testTextView.isInitialized) {
+                Log.d("jppark", "텍스트 뷰를 invalidate 시켰습니다.")
+                testTextView.invalidate()
+            }
             count = 0
             return
         }
+    }
+
+    lateinit var testTextView: TextView
+    fun setTextView(textView: TextView) {
+        testTextView = textView
     }
 
     fun onClickOpenOtherActivity(context: Context) {

@@ -34,6 +34,8 @@ class MainActivity : AppCompatActivity() {
                     Log.d("jppark", "width : ${txtName.width}")
                     Log.d("jppark", "height : ${txtName.height}")
                 }
+            }.run {
+                this@MainActivity.mainViewModel.testTextView = txtContract
             }
     }
 
